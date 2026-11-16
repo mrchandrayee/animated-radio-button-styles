@@ -1,0 +1,45 @@
+*{box-sizing:border-box}
+:root{color-scheme:dark;font-family:Arial,Helvetica,sans-serif;background:#050608;color:#edf3f7}
+html{scroll-behavior:smooth}
+body{margin:0;background:#050608;min-height:100vh}
+.page{width:min(100% - 36px,640px);margin:0 auto;padding:34px 0 55px}
+h1{margin:0 0 32px;text-align:center;color:#9acbff;font-size:clamp(22px,4.5vw,31px);line-height:1.2;text-shadow:0 0 5px #238cff,0 0 12px #238cff88}
+.demo{border:1.5px solid #f4772e;padding:22px 17px 28px;margin:0 0 24px;background:#050608}
+.demo h2{margin:0 0 16px;text-align:center;font-size:16px;color:#f1f5f9}
+.radio{display:flex;align-items:center;gap:14px;width:max-content;min-height:56px;margin:0 auto 24px;cursor:pointer;user-select:none}
+.radio input{position:absolute;opacity:0;width:1px;height:1px}
+.radio span{position:relative;display:block;flex:none;width:38px;height:38px;border-radius:50%;transition:background .25s,box-shadow .25s,border-color .25s,transform .25s}
+.radio b{font-size:13px;font-weight:400;color:#d9e1e9}
+.radio:focus-within span{outline:2px solid #fff;outline-offset:5px}
+.code-card{background:#0d1d17;border-radius:13px;padding:15px 13px 18px}
+.code-label{color:#32d8e7;font-size:12px;margin:0 0 8px}
+pre{margin:0 0 13px;padding:13px 12px;background:#020405;border-radius:8px;overflow-x:auto;white-space:pre;color:#39b65c;font:11px/1.55 "SFMono-Regular",Consolas,monospace}
+pre:last-child{margin-bottom:0}
+
+/* Pulse Glow — transcribed declarations plus the shared radio control base. */
+.pulse span{border:2px solid #00f7ff}
+.pulse input:checked+span{background:#00f7ff;box-shadow:0 0 15px #00f7ff;animation:pulse .6s}
+@keyframes pulse{50%{transform:scale(1.4)}}
+
+/* Sliding Dot */
+.slide span{border:2px solid #ff4081}
+.slide span::after{content:"";width:10px;height:10px;background:#ff4081;border-radius:50%;position:absolute;left:-15px;top:4px;transition:.4s}
+.slide input:checked+span::after{left:5px}
+
+/* Glass Effect */
+.glass span{backdrop-filter:blur(10px);background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.3)}
+.glass input:checked+span{background:rgba(0,255,200,.4);box-shadow:0 0 15px rgba(0,255,200,.7)}
+
+/* Neon Ring */
+.neon span{border:2px solid #0ff}
+.neon input:checked+span{box-shadow:0 0 10px #0ff,0 0 30px #0ff;animation:rotate .8s linear}
+@keyframes rotate{to{transform:rotate(360deg)}}
+
+/* Game Pop */
+.game span{border:2px solid #ffd700}
+.game input:checked+span{background:#ffd700;animation:pop .3s}
+@keyframes pop{50%{transform:scale(1.3)}}
+
+@media(min-width:600px){.page{padding-top:42px}.demo{padding:24px 22px 30px}.code-card{padding:18px 18px 20px}pre{font-size:12px;padding:15px}}
+@media(max-width:420px){.page{width:calc(100% - 22px);padding-top:26px}.demo{padding:19px 11px 20px}.code-card{padding:13px 9px 15px}pre{font-size:10px;padding:11px 9px}}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms!important;transition-duration:.01ms!important;scroll-behavior:auto!important}}
